@@ -1,7 +1,8 @@
-version: "3.8"  # opcional, mas recomendado
+# Remova essa linha se quiser evitar o warning
+# version: "3.8"
 
 services:
-  api-vip:
+  api:
     build: 
       context: .
     ports:
@@ -15,12 +16,13 @@ services:
       - traefik.enable=true
       - traefik.docker.network=easypanel
       - traefik.http.services.api-vip.loadbalancer.server.port=8000
+      - traefik.http.routers.api-vip.rule=Host(`api.seudominio.com`)
       - traefik.http.routers.api-vip.entrypoints=websecure
       - traefik.http.routers.api-vip.tls=true
       - traefik.http.routers.api-vip.tls.certresolver=letsencrypt
 
 networks:
   api-network:
-    driver: bridge  # também estava escrito errado: "drive"
+    driver: bridge
   easypanel:
     external: true
