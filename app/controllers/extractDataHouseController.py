@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 from typing import Annotated
 from http import HTTPStatus
 import os
-from api.services.extractDataHouseService import ExtractDataHouseService
+from app.services.extractDataHouseService import ExtractDataHouseService
 
 
 

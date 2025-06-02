@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from api.controllers.extractDataCarController import router_car
-from api.controllers.extractDataHouseController import router_house
+from app.controllers.extractDataCarController import router_car
+from app.controllers.extractDataHouseController import router_house
 
 
 app = FastAPI()

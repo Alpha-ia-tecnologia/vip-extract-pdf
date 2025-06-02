@@ -8,7 +8,7 @@ COPY ./requirements.txt /code/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # Copia o restante do código
-COPY ./src /code/app
+COPY ./app /code/app
 
 # Comando para iniciar o servidor FastAPI com Uvicorn
 CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "8000"]
