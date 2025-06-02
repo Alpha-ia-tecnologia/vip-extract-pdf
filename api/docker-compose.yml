@@ -1,4 +1,6 @@
-service:
+version: "3.8"  # opcional, mas recomendado
+
+services:
   api:
     build: .
     ports:
@@ -8,13 +10,14 @@ service:
       - easypanel
     labels:
       - traefik.enable=true
-      - traefik.docker.network=easypanel  # Importante: especificar a rede do Traefik
+      - traefik.docker.network=easypanel
       - traefik.http.services.salf-api.loadbalancer.server.port=8000
       - traefik.http.routers.salf-api.entrypoints=websecure
       - traefik.http.routers.salf-api.tls=true
-      - traefik.http.routers.salf-api.tls.certresolver=letsencrypt  # Se estiver usando Let's Encrypt
-    networks:
-      api-network:
-        drive: bridge
-      easypanel:
-        external: true
+      - traefik.http.routers.salf-api.tls.certresolver=letsencrypt
+
+networks:
+  api-network:
+    driver: bridge  # também estava escrito errado: "drive"
+  easypanel:
+    external: true
