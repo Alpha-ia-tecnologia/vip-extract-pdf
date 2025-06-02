@@ -1,0 +1,5 @@
+fastapi[standard]
+pymupdf
+langchain
+langchain_google_genai
+python-dotenv
